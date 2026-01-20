@@ -33,7 +33,7 @@ def main():
 
     try:
         while (True):
-            time.sleep(.1)
+            time.sleep(.2)
     except KeyboardInterrupt:
         observer.stop()
 
@@ -43,14 +43,11 @@ def main():
 if __name__ == "__main__":
     print("Hello.")
     print(
-        f"current settings:\nosu directory: {config.osu_path}\nparsing delay: {config.delay}")
+        f"current settings:\nosu directory: {config.osu_path}\n")
     if input("would you like to change this? (y/n)\n") == 'y':
         new_path = input("enter osu! path: ")
-        new_delay = input("enter new delay in milliseconds: ")
         if new_path:
             config = update_and_save_config(config, osu_path=new_path)
-        if new_delay:
-            config = update_and_save_config(config, delay=new_delay)
         print("okay, changes saved.")
 
     main()
