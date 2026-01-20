@@ -47,7 +47,12 @@ if __name__ == "__main__":
     if input("would you like to change this? (y/n)\n") == 'y':
         new_path = input("enter osu! path: ")
         if new_path:
-            config = update_and_save_config(config, osu_path=new_path)
+            try:
+                config = update_and_save_config(config, osu_path=new_path, osu_exe=os.path.join(
+                    new_path, "osu!.exe"), replays_path=os.path.join(new_path, "Replays"))
+            except Exception as e:
+                print(f"error! {e}")
+                exit(1)
         print("okay, changes saved.")
 
     main()
