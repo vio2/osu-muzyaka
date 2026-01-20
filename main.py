@@ -52,6 +52,5 @@ if __name__ == "__main__":
         if new_delay:
             config = update_and_save_config(config, delay=new_delay)
         print("okay, changes saved.")
-        main()
-    else:
-        print("no")
+
+    main()
